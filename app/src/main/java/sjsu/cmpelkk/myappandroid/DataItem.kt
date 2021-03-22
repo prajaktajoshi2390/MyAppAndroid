@@ -28,3 +28,7 @@ public val carddefaultdata = listOf<DataItem>(
         DataItem("name3", "testtitle3", "Test story", false, 4, Uri.parse("android.resource://sjsu.cmpelkk.myappandroid" + "/" + R.drawable.sjsu2).toString()),
         DataItem("name4", "testtitle4", "Test story", false, 4, Uri.parse("android.resource://sjsu.cmpelkk.myappandroid" + "/" + R.drawable.sjsu3).toString())
 )
+public val cardworlddata = listOf<DataItem>(
+    DataItem("name1", "testtitle1", "Test story", false, 4, Uri.parse("android.resource://sjsu.cmpelkk.myappandroid" + "/" + R.drawable.sjsu2).toString()),
+    DataItem("name2", "testtitle2", "Test story", false, 4, Uri.parse("android.resource://sjsu.cmpelkk.myappandroid" + "/" + R.drawable.sjsu3).toString())
+)
