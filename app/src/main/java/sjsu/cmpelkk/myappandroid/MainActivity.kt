@@ -11,6 +11,7 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -21,13 +22,11 @@ import androidx.cardview.widget.CardView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.*
 import androidx.navigation.ui.NavigationUI.setupWithNavController
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import sjsu.cmpelkk.myappandroid.myutil.SwipeToDeleteCallback
@@ -40,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var drawerLayout: DrawerLayout
     lateinit var navigationView: NavigationView
+    lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var listner: NavController.OnDestinationChangedListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         navigationView = findViewById(R.id.navigationView)
         navigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        bottomNavigationView = findViewById(R.id.bottom_nav_view)
+        bottomNavigationView.setupWithNavController(navController)
 
     }
 

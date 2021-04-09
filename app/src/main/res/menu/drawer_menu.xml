@@ -8,5 +8,6 @@
         <item
             android:id="@+id/secondFragment"
             android:title="World News" />
+
     </group>
 </menu>

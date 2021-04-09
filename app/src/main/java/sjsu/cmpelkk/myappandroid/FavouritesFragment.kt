@@ -29,7 +29,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [FirstFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FirstFragment : Fragment() {
+class FavouritesFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -49,15 +49,15 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_first, container, false)
+        val view = inflater.inflate(R.layout.fragment_favourites, container, false)
         return view
     }
 
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
         recyclerCard = itemView.findViewById(R.id.cardrecyclerview)
-        datalist = carddefaultdata.toMutableList()
-        recyclerCard.adapter = TopCardAdapter(datalist) //(carddefaultdata)
+        datalist = favouritesdata.toMutableList()
+        recyclerCard.adapter = FavCardAdapter(datalist) //(favouritesdata)
 
 //        val fab: View = itemView.findViewById(R.id.floatingActionButton)
 //        fab.setOnClickListener { view ->
@@ -65,9 +65,6 @@ class FirstFragment : Fragment() {
 //            val action = FirstFragmentDirections.actionFirstFragmentToPostActivity()
 //            Navigation.findNavController(view).navigate(action)
 //        }
-
-
-
     }
 
     companion object {
@@ -77,12 +74,12 @@ class FirstFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment FirstFragment.
+         * @return A new instance of fragment FavouritesFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            FirstFragment().apply {
+            FavouritesFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
@@ -92,7 +89,7 @@ class FirstFragment : Fragment() {
 
 }
 
-class TopCardViewHolder(val cardView: CardView) : RecyclerView.ViewHolder(cardView) {
+class FavCardViewHolder(val cardView: CardView) : RecyclerView.ViewHolder(cardView) {
     val title: TextView = cardView.findViewById(R.id.carditemtitletextView)
     val story: TextView = cardView.findViewById(R.id.carditemdetailtext)
     val image: ImageView = cardView.findViewById(R.id.cardimageView)
@@ -109,12 +106,12 @@ class TopCardViewHolder(val cardView: CardView) : RecyclerView.ViewHolder(cardVi
             Snackbar.make(it, "Click detected on item $position",
                 Snackbar.LENGTH_LONG).setAction("Action", null).show()
 
-            val intent = Intent(context, DetailScrollingActivity::class.java).apply {
-                //putExtra("DataItem", oneitem.title)
-                putExtra("DataItem", oneitem as Serializable)
-                //get the object with: val object = intent.extras.get("DataItem") as DataItem
-            }
-            context.startActivity(intent)
+//            val intent = Intent(context, NewsDetails::class.java).apply {
+//                //putExtra("DataItem", oneitem.title)
+//                putExtra("DataItem", oneitem as Serializable)
+//                //get the object with: val object = intent.extras.get("DataItem") as DataItem
+//            }
+//            context.startActivity(intent)
         }
         //header.setTextColor(Color.parseColor("#ffffff"))
         title.setTextColor(context.getColor(R.color.primaryDarkColor))
@@ -122,23 +119,15 @@ class TopCardViewHolder(val cardView: CardView) : RecyclerView.ViewHolder(cardVi
         story.setTextColor(context.getColor(R.color.secondaryDarkColor))
 
         val toggle: ToggleButton = cardView.findViewById(R.id.toggleFavourite)
-        toggle.setBackgroundResource(R.drawable.favgray);
-        toggle.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                // The toggle is enabled
-                toggle.setBackgroundResource(R.drawable.favyellow);
-            } else {
-                // The toggle is disabled
-                toggle.setBackgroundResource(R.drawable.favgray);
-            }
-        }
+        toggle.setBackgroundResource(R.drawable.favyellow);
+
     }
 
 }
 
-class TopCardAdapter(var data: MutableList<DataItem>) : RecyclerView.Adapter<TopCardViewHolder>()
+class FavCardAdapter(var data: MutableList<DataItem>) : RecyclerView.Adapter<FavCardViewHolder>()
 {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopCardViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavCardViewHolder {
         //TODO("Not yet implemented")
         //create an instance of LayoutInflater
         //The layout inflater knows how to create views from XML layouts. The context contains information on how to correctly inflate the view.
@@ -153,7 +142,7 @@ class TopCardAdapter(var data: MutableList<DataItem>) : RecyclerView.Adapter<Top
 
 
         //val view = LayoutInflater.from(parent.context).inflate(R.layout.card_item_view, parent, false)
-        return TopCardViewHolder(view)
+        return FavCardViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -161,7 +150,7 @@ class TopCardAdapter(var data: MutableList<DataItem>) : RecyclerView.Adapter<Top
         return data.size
     }
 
-    override fun onBindViewHolder(holder: TopCardViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FavCardViewHolder, position: Int) {
         //TODO("Not yet implemented")
         holder.bind(data[position])
     }

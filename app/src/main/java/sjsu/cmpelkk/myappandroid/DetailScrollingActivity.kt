@@ -41,10 +41,10 @@ class DetailScrollingActivity : AppCompatActivity() {
         }//toolbar.title = title
 
         //findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout).title = title
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+//        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null).show()
+//        }
 
         //To enable the Up button for an activity that has a parent activity,
         // call the app bar's setDisplayHomeAsUpEnabled() method.

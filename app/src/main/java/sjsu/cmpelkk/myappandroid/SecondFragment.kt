@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.ToggleButton
 import androidx.cardview.widget.CardView
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -62,12 +63,12 @@ class SecondFragment : Fragment() {
         datalist = cardworlddata.toMutableList()
         recyclerCard.adapter = HomeCardAdapter(datalist) //(carddefaultdata)
 
-        val fab: View = itemView.findViewById(R.id.floatingActionButton)
-        fab.setOnClickListener { view ->
-
-            val action = SecondFragmentDirections.actionSecondFragmentToPostActivity()
-            Navigation.findNavController(view).navigate(action)
-        }
+//        val fab: View = itemView.findViewById(R.id.floatingActionButton)
+//        fab.setOnClickListener { view ->
+//
+//            val action = SecondFragmentDirections.actionSecondFragmentToPostActivity()
+//            Navigation.findNavController(view).navigate(action)
+//        }
 
     }
 
@@ -119,6 +120,18 @@ class HomeCardViewHolder(val cardView: CardView) : RecyclerView.ViewHolder(cardV
         title.setTextColor(context.getColor(R.color.primaryDarkColor))
         //description.setTextColor(Color.parseColor("#ffa270"))
         story.setTextColor(context.getColor(R.color.secondaryDarkColor))
+
+        val toggle: ToggleButton = cardView.findViewById(R.id.toggleFavourite)
+        toggle.setBackgroundResource(R.drawable.favgray);
+        toggle.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                // The toggle is enabled
+                toggle.setBackgroundResource(R.drawable.favyellow);
+            } else {
+                // The toggle is disabled
+                toggle.setBackgroundResource(R.drawable.favgray);
+            }
+        }
     }
 
 }
