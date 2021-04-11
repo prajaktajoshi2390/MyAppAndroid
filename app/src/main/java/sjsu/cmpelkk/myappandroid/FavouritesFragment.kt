@@ -106,12 +106,12 @@ class FavCardViewHolder(val cardView: CardView) : RecyclerView.ViewHolder(cardVi
             Snackbar.make(it, "Click detected on item $position",
                 Snackbar.LENGTH_LONG).setAction("Action", null).show()
 
-//            val intent = Intent(context, NewsDetails::class.java).apply {
-//                //putExtra("DataItem", oneitem.title)
-//                putExtra("DataItem", oneitem as Serializable)
-//                //get the object with: val object = intent.extras.get("DataItem") as DataItem
-//            }
-//            context.startActivity(intent)
+            val intent = Intent(context, NewsDetails::class.java).apply {
+                //putExtra("DataItem", oneitem.title)
+                putExtra("DataItem", oneitem as Serializable)
+                //get the object with: val object = intent.extras.get("DataItem") as DataItem
+            }
+            context.startActivity(intent)
         }
         //header.setTextColor(Color.parseColor("#ffffff"))
         title.setTextColor(context.getColor(R.color.primaryDarkColor))

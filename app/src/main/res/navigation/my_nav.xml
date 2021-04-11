@@ -41,7 +41,7 @@
     <activity
         android:id="@+id/postActivity"
         android:name="sjsu.cmpelkk.myappandroid.PostActivity"
-        android:label="activity_post"
+        android:label="Post "
         tools:layout="@layout/activity_post" />
     <fragment
         android:id="@+id/favouritesFragment"

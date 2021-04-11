@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppAndroid">
         <activity
+            android:name=".NewsDetails"
+            android:label="News Details"
+            android:parentActivityName=".MainActivity"
+            ></activity>
+        <activity
             android:name=".DetailScrollingActivity"
             android:label="@string/title_activity_detail_scrolling"
             android:parentActivityName=".MainActivity"
@@ -25,6 +30,7 @@
         <activity android:name=".DisplayMessageActivity" />
         <activity
             android:name=".PostActivity"
+            android:label="Post News"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

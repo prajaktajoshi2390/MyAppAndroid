@@ -47,9 +47,10 @@ public val cardworlddata = listOf<DataItem>(
             4, Uri.parse("android.resource://sjsu.cmpelkk.myappandroid" + "/" + R.drawable.japan).toString())
 )
 public val favouritesdata = listOf<DataItem>(
-    DataItem("name2", "Japanese Governor Warns That Region's Hospitals Are 'on the Verge of Collapse' Amid COVID Spike",
-        "The governor of Osaka, Japan recently warned that the region's hospitals are on the \"verge of collapse\" amid a surge in COVID-19 cases.", false,
-        4, Uri.parse("android.resource://sjsu.cmpelkk.myappandroid" + "/" + R.drawable.japan).toString()),
+    DataItem("name3", "Patreon triples valuation to \$4 billion in new raise",
+        "Patreon has tripled its valuation to \$4 billion in a \$155 million funding round led by Tiger Global", true,
+        4, Uri.parse("android.resource://sjsu.cmpelkk.myappandroid" + "/" + R.drawable.patreon).toString()),//Uri is not serializable
+
     DataItem("name4", "U.K. Launches New Competition Watchdog Targeting Big Tech - The Wall Street Journal",
         "Digital Markets Unit to police how largest global technology firms wield their market power", false,
         4, Uri.parse("android.resource://sjsu.cmpelkk.myappandroid" + "/" + R.drawable.person).toString())
