@@ -3,7 +3,7 @@
 
     <group >
         <item
-            android:id="@+id/firstFragment"
+            android:id="@+id/homeFragment"
             android:title="Top News" />
         <item
             android:id="@+id/secondFragment"

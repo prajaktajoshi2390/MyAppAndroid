@@ -26,7 +26,7 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [FirstFragment.newInstance] factory method to
+ * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
 class FavouritesFragment : Fragment() {
@@ -62,7 +62,7 @@ class FavouritesFragment : Fragment() {
 //        val fab: View = itemView.findViewById(R.id.floatingActionButton)
 //        fab.setOnClickListener { view ->
 //
-//            val action = FirstFragmentDirections.actionFirstFragmentToPostActivity()
+//            val action = HomeFragmentDirections.actionHomeFragmentToPostActivity()
 //            Navigation.findNavController(view).navigate(action)
 //        }
     }
@@ -119,7 +119,7 @@ class FavCardViewHolder(val cardView: CardView) : RecyclerView.ViewHolder(cardVi
         story.setTextColor(context.getColor(R.color.secondaryDarkColor))
 
         val toggle: ToggleButton = cardView.findViewById(R.id.toggleFavourite)
-        toggle.setBackgroundResource(R.drawable.favyellow);
+        toggle.setBackgroundResource(R.drawable.favyellow)
 
     }
 

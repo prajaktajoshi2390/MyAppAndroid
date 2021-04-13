@@ -17,18 +17,6 @@
             android:parentActivityName=".MainActivity"
             ></activity>
         <activity
-            android:name=".DetailScrollingActivity"
-            android:label="@string/title_activity_detail_scrolling"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.MyAppAndroid.NoActionBar">
-
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity android:name=".DisplayMessageActivity" />
-        <activity
             android:name=".PostActivity"
             android:label="Post News"
             android:parentActivityName=".MainActivity" />

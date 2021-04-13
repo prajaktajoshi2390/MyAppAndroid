@@ -90,10 +90,10 @@ class PostActivity : AppCompatActivity() {
 //        val editText = findViewById<EditText>(R.id.nameTextfield)
 //        val message = editText.text.toString()
         val message = nametext.text.toString()
-        val intent = Intent(this, DisplayMessageActivity::class.java).apply {
-            putExtra(EXTRA_MESSAGE, message)
-        }
-        startActivity(intent)
+//        val intent = Intent(this, DisplayMessageActivity::class.java).apply {
+//            putExtra(EXTRA_MESSAGE, message)
+//        }
+        // startActivity(intent)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
