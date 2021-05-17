@@ -7,6 +7,15 @@
     android:background="@color/white"
     tools:context=".Network.NewsFragment">
 
+    <SearchView
+        android:id="@+id/newsSearchView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/secondaryColor"
+        android:editTextColor="@color/primaryTextColor"
+        android:textColor="@color/primaryTextColor"
+        android:textColorHint="@color/primaryTextColor" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,9 +24,11 @@
             android:id="@+id/newscardrecyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
             android:clipToPadding="true"
             android:padding="16dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

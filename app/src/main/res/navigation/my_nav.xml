@@ -60,6 +60,6 @@
     <fragment
         android:id="@+id/newsFragment"
         android:name="sjsu.cmpelkk.myappandroid.Network.NewsFragment"
-        android:label="news_fragment"
+        android:label="Top Headlines"
         tools:layout="@layout/news_fragment" />
 </navigation>

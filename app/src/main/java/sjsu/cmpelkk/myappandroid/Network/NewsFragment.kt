@@ -1,24 +1,23 @@
 package sjsu.cmpelkk.myappandroid.Network
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.os.Parcelable
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.SearchView
 import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
-import sjsu.cmpelkk.myappandroid.Network.NewsContent
 import sjsu.cmpelkk.myappandroid.R
-import java.io.Serializable
 
 
 private const val ARG_PARAM1 = "param1"
@@ -66,6 +65,39 @@ class NewsFragment : Fragment() {
             datalist = newresponse //display the raw json data
             recyclerCard.adapter = NewsCardAdapter(datalist) //(carddefaultdata)
         })
+
+
+        val newsSearchView: SearchView = itemView.findViewById(R.id.newsSearchView) as SearchView // inititate a search view
+        val id: Int = newsSearchView.getContext()
+            .getResources()
+            .getIdentifier("android:id/search_src_text", null, null)
+        val textView = newsSearchView.findViewById(id) as TextView
+        textView.setTextColor(Color.WHITE)
+
+        newsSearchView.setOnQueryTextListener(object :
+            SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String): Boolean {
+                if (newText == null || newText.isEmpty()) {
+                    viewModel.getNewsProperties()
+                    viewModel._response.observe(viewLifecycleOwner, Observer { newresponse ->
+                        datalist = newresponse //display the raw json data
+                        recyclerCard.adapter = NewsCardAdapter(datalist) //(carddefaultdata)
+                    })
+                    return false
+                }
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                viewModel.getNewsPropertiesOnSearch(query)
+                viewModel._response.observe(viewLifecycleOwner, Observer { newresponse ->
+                    datalist = newresponse //display the raw json data
+                    recyclerCard.adapter = NewsCardAdapter(datalist) //(carddefaultdata)
+                })
+                return false
+            }
+        }
+        )
 
     }
 
@@ -146,9 +178,12 @@ class NewsCardViewHolder(val cardView: CardView) : RecyclerView.ViewHolder(cardV
                 toggle.setBackgroundResource(R.drawable.favgray);
             }
         }
+
+        }
+
     }
 
-}
+
 
 class NewsCardAdapter(var data: List<Article>) : RecyclerView.Adapter<NewsCardViewHolder>()
 {

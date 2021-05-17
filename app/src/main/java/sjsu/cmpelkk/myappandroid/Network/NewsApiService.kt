@@ -52,12 +52,13 @@ object NULL_TO_EMPTY_STRING_ADAPTER {
  * A public interface that exposes the [getProperties] method
  */
 interface NewsApiService {
-    @GET("top-headlines") //realestate Retrofit appends the endpoint to the base URL
+    @GET("top-headlines")
     fun getTopHeadlines(@Query("country") country: String, @Query("apiKey") apiKey: String):
-            Call<TopHeadlines> //List<WeatherProperty>
-    //Call<String>
-//    fun getProperties():
-//            Call<String>
+            Call<TopHeadlines>
+
+    @GET("top-headlines")
+    fun getUserSearchInput(@Query("apiKey") apiKey: String, @Query("q") q: String):
+            Call<TopHeadlines>
 }
 
 /**
